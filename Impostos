@@ -1,0 +1,22 @@
+fun Float.format(digits: Int) = "%.${digits}f".format(this).replace(',','.')
+
+    val valor =  readLine () !!.toFloat()
+    var imposto =  0F
+    var diferenca :  Double
+
+    if (valor >  4500.00 ) {
+        imposto = (1000.00  *  0.08  +  1500.00  *  0.18).toFloat()
+        diferenca = valor -  4500.00
+        imposto += (diferenca *  0.28).toFloat()
+        println("R$ ${imposto.format(2)}")
+    } else  if (valor >  3000 ) {
+        imposto = (1000  *  0.08).toFloat()
+        diferenca = valor -  3000.00
+        imposto += (diferenca *  0.18).toFloat()
+        println("R$ ${imposto.format(2)}")
+    } else  if (valor >  2000 ) {
+        diferenca = valor -  2000.00
+        imposto = (diferenca *  0.08).toFloat()
+        println("R$ ${imposto.format(2)}")
+    }else if (imposto ==  0F ) println ( " Isento " ) else  println ( " R $ {imposto.format (2)} " )
+}
